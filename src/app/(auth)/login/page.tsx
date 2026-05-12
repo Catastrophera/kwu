@@ -37,10 +37,10 @@ export default function LoginPage() {
       <div className="max-w-md w-full space-y-8 p-8 bg-cyber-gray/50 border border-cyber-cyan/30 neon-box-cyan rounded-lg backdrop-blur-sm">
         <div>
           <h2 className="text-center text-3xl font-extrabold text-white tracking-tight">
-            SYSTEM <span className="text-cyber-cyan">LOGIN</span>
+            Masuk ke <span className="text-cyber-cyan">Akun</span>mu
           </h2>
           <p className="mt-2 text-center text-sm text-gray-400">
-            Enter your credentials to access the network
+            Login dulu ya, biar bisa beli dan gacha!
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -51,7 +51,7 @@ export default function LoginPage() {
           )}
           <div className="space-y-4">
             <div>
-              <label className="block text-xs font-mono text-cyber-cyan mb-1 uppercase">Email Address</label>
+              <label className="block text-xs font-mono text-cyber-cyan mb-1 uppercase">Alamat Email</label>
               <input
                 type="email"
                 required
@@ -80,15 +80,15 @@ export default function LoginPage() {
               disabled={isLoading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-bold bg-cyber-cyan text-black hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyber-cyan transition-colors disabled:opacity-50"
             >
-              {isLoading ? 'AUTHENTICATING...' : 'INITIALIZE_LOGIN'}
+              {isLoading ? 'Sedang masuk...' : 'Masuk'}
             </button>
           </div>
         </form>
         <div className="text-center mt-4">
           <p className="text-sm text-gray-400">
-            No access code?{' '}
+            Belum punya akun?{' '}
             <Link href="/register" className="font-medium text-cyber-pink hover:text-white transition-colors">
-              Register here
+              Daftar di sini
             </Link>
           </p>
         </div>

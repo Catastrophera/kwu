@@ -17,23 +17,24 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex gap-6 items-center">
-            <Link href="/" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Catalog</Link>
-            <Link href="/gacha" className="text-sm font-medium text-cyber-cyan hover:text-white transition-colors drop-shadow-[0_0_8px_rgba(0,229,255,0.4)]">Gacha Pull</Link>
+            <Link href="/" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Katalog</Link>
+            <Link href="/gacha" className="text-sm font-medium text-cyber-cyan hover:text-white transition-colors drop-shadow-[0_0_8px_rgba(0,229,255,0.4)]">🎰 Gacha</Link>
+            <Link href="/cara-beli" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Cara Beli</Link>
             
             {session ? (
               <div className="flex items-center gap-6 ml-4 border-l border-white/10 pl-6">
-                <Link href="/history" className="text-sm text-gray-400 hover:text-white transition-colors">History</Link>
+                <Link href="/history" className="text-sm text-gray-400 hover:text-white transition-colors">Riwayat</Link>
                 <button 
                   onClick={() => signOut()} 
                   className="text-sm px-4 py-2 rounded-full border border-white/10 text-gray-300 hover:border-cyber-pink hover:text-cyber-pink transition-all bg-white/5"
                 >
-                  Logout
+                  Keluar
                 </button>
               </div>
             ) : (
               <div className="flex items-center gap-4 ml-4 border-l border-white/10 pl-6">
-                <Link href="/login" className="text-sm text-gray-300 hover:text-white transition-colors">Login</Link>
-                <Link href="/register" className="text-sm px-6 py-2 rounded-full cyber-button text-white font-medium">Register</Link>
+                <Link href="/login" className="text-sm text-gray-300 hover:text-white transition-colors">Masuk</Link>
+                <Link href="/register" className="text-sm px-6 py-2 rounded-full cyber-button text-white font-medium">Daftar</Link>
               </div>
             )}
           </div>
@@ -42,3 +43,4 @@ export default function Navbar() {
     </nav>
   )
 }
+

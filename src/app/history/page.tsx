@@ -29,15 +29,15 @@ export default async function HistoryPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-extrabold mb-12 font-mono tracking-tighter">
-        USER <span className="text-cyber-pink">DATABANK</span>
+        Riwayat & <span className="text-cyber-pink">Koleksiku</span>
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Transaction History */}
         <div>
-           <h2 className="text-2xl font-bold mb-6 font-mono text-cyber-cyan border-b border-cyber-gray pb-2">TRANSACTION_LOGS</h2>
+           <h2 className="text-2xl font-bold mb-6 font-mono text-cyber-cyan border-b border-cyber-gray pb-2">Riwayat Transaksi</h2>
            {transactions.length === 0 ? (
-             <p className="text-gray-500 font-mono">No transaction data found.</p>
+             <p className="text-gray-500 font-mono">Belum ada transaksi.</p>
            ) : (
              <div className="space-y-4">
                {transactions.map((tx) => (
@@ -65,9 +65,9 @@ export default async function HistoryPage() {
 
         {/* Gacha Inventory */}
         <div>
-           <h2 className="text-2xl font-bold mb-6 font-mono text-cyber-pink border-b border-cyber-gray pb-2">GACHA_INVENTORY</h2>
+           <h2 className="text-2xl font-bold mb-6 font-mono text-cyber-pink border-b border-cyber-gray pb-2">Koleksi Gacha</h2>
            {gachaLogs.length === 0 ? (
-             <p className="text-gray-500 font-mono">No items acquired from gacha.</p>
+             <p className="text-gray-500 font-mono">Belum ada stiker dari gacha. Coba tarik sekarang!</p>
            ) : (
              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                {gachaLogs.map((log) => (
@@ -87,7 +87,7 @@ export default async function HistoryPage() {
            )}
            <div className="mt-8">
              <Link href="/gacha" className="inline-block border border-cyber-pink text-cyber-pink px-4 py-2 text-sm font-bold hover:bg-cyber-pink hover:text-black transition-colors">
-               PULL_MORE_GACHA
+               🎰 Tarik Gacha Lagi!
              </Link>
            </div>
         </div>

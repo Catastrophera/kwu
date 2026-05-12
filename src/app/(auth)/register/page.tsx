@@ -42,10 +42,10 @@ export default function RegisterPage() {
       <div className="max-w-md w-full space-y-8 p-8 bg-cyber-gray/50 border border-cyber-pink/30 neon-box-pink rounded-lg backdrop-blur-sm">
         <div>
           <h2 className="text-center text-3xl font-extrabold text-white tracking-tight">
-            NEW <span className="text-cyber-pink">USER</span> REGISTRATION
+            Buat <span className="text-cyber-pink">Akun</span> Baru
           </h2>
           <p className="mt-2 text-center text-sm text-gray-400">
-            Create an account to access the marketplace
+            Gratis! Daftar sekarang untuk mulai belanja stiker.
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -56,7 +56,7 @@ export default function RegisterPage() {
           )}
           <div className="space-y-4">
              <div>
-              <label className="block text-xs font-mono text-cyber-pink mb-1 uppercase">Username</label>
+              <label className="block text-xs font-mono text-cyber-pink mb-1 uppercase">Nama Pengguna</label>
               <input
                 type="text"
                 required
@@ -67,7 +67,7 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-mono text-cyber-pink mb-1 uppercase">Email Address</label>
+              <label className="block text-xs font-mono text-cyber-pink mb-1 uppercase">Alamat Email</label>
               <input
                 type="email"
                 required
@@ -96,15 +96,15 @@ export default function RegisterPage() {
               disabled={isLoading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-bold bg-cyber-pink text-black hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyber-pink transition-colors disabled:opacity-50"
             >
-              {isLoading ? 'PROCESSING...' : 'INITIALIZE_ACCOUNT'}
+              {isLoading ? 'Memproses...' : 'Daftar Sekarang'}
             </button>
           </div>
         </form>
         <div className="text-center mt-4">
           <p className="text-sm text-gray-400">
-            Already have an access code?{' '}
+            Sudah punya akun?{' '}
             <Link href="/login" className="font-medium text-cyber-cyan hover:text-white transition-colors">
-              Login here
+              Masuk di sini
             </Link>
           </p>
         </div>

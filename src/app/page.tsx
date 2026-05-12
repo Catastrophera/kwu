@@ -16,15 +16,18 @@ export default async function Home() {
         </div>
         <div className="relative z-10 max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
-            Upgrade Your <br />
-            <span className="gradient-text glitch-hover" data-text="HARDWARE">HARDWARE</span>
+            Tempel Gaya, <br />
+            <span className="gradient-text glitch-hover" data-text="TUNJUKKAN SKILLMU">TUNJUKKAN SKILLMU</span>
           </h1>
           <p className="text-xl text-gray-400 mb-10 font-light leading-relaxed">
-            Premium IT-themed decals and stickers for true developers. Hack your laptop aesthetics with our curated Ukiyo-e Cyberpunk collection.
+            Stiker laptop bertema IT dengan harga terjangkau mulai <span className="text-cyber-cyan font-bold">Rp 1.000</span>. Bisa beli langsung atau coba peruntungan lewat Gacha!
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <Link href="#catalog" className="cyber-button text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm inline-flex items-center gap-2">
-              Access Catalog <span className="opacity-50">→</span>
+              Lihat Katalog <span className="opacity-50">→</span>
+            </Link>
+            <Link href="/cara-beli" className="px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm inline-flex items-center gap-2 border border-white/20 text-gray-300 hover:text-white hover:border-white/40 transition-all">
+              Cara Beli
             </Link>
           </div>
         </div>
@@ -35,9 +38,9 @@ export default async function Home() {
         <div className="bg-cyber-dark/90 backdrop-blur-xl rounded-xl p-10 text-center relative overflow-hidden group cursor-pointer h-full">
           <Link href="/gacha" className="absolute inset-0 z-10"></Link>
           <div className="relative z-20">
-            <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">LUCKY <span className="text-cyber-cyan drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">GACHA</span> PULL</h2>
-            <p className="text-gray-400 font-light mb-8 max-w-2xl mx-auto text-lg">Feeling lucky? Try our random gacha pull for a chance to win premium stickers at a highly discounted rate.</p>
-            <span className="inline-block cyber-button text-white font-bold px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,229,255,0.2)]">INITIATE_PULL()</span>
+            <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">🎰 GACHA <span className="text-cyber-cyan drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">STIKER</span></h2>
+            <p className="text-gray-400 font-light mb-8 max-w-2xl mx-auto text-lg">Coba keberuntunganmu! Dapatkan stiker IT secara acak dengan harga hanya <span className="text-cyber-cyan font-bold">Rp 500</span> per tarikan.</p>
+            <span className="inline-block cyber-button text-white font-bold px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,229,255,0.2)]">Coba Sekarang!</span>
           </div>
         </div>
       </div>
@@ -46,7 +49,7 @@ export default async function Home() {
       <div id="catalog" className="scroll-mt-24">
         <h2 className="text-3xl font-bold mb-10 tracking-tight flex items-center gap-4">
           <span className="w-8 h-1 bg-gradient-to-r from-cyber-pink to-cyber-cyan rounded-full"></span>
-          AVAILABLE STICKERS
+          KOLEKSI STIKER
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {products.map((product) => (
@@ -69,7 +72,7 @@ export default async function Home() {
                 <h3 className="text-lg font-bold mb-2 group-hover:text-cyber-cyan transition-colors line-clamp-1">{product.product_name}</h3>
                 <p className="text-xl text-white/90 mb-6 font-mono font-medium mt-auto">Rp {product.price.toLocaleString('id-ID')}</p>
                 <Link href={`/checkout?product=${product.id}`} className="w-full text-center cyber-button py-3 rounded-xl font-medium text-sm text-white/90 hover:text-white mt-auto">
-                  Acquire Sticker
+                  Beli Sekarang
                 </Link>
               </div>
             </div>

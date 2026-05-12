@@ -110,5 +110,37 @@ body {
   40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
   60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
   80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
-  100% { clip-path: inset(30% 0 40% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

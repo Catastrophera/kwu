@@ -27,7 +27,7 @@ export default function RootLayout({
           </main>
           <FloatingWhatsApp />
           <footer className="border-t border-white/5 py-8 mt-12 glass-panel text-center">
-            <p className="text-sm text-gray-400">&copy; 2026 IT Self-Sticker. Crafted for Developers.</p>
+            <p className="text-sm text-gray-400">&copy; 2026 IT Self-Sticker. Dibuat dengan ❤️ untuk para developer.</p>
           </footer>
         </AuthProvider>
       </body>

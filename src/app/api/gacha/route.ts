@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     await prisma.transaction.create({
       data: {
         user_id: parseInt(session.user.id),
-        total_amount: 10000, // Fixed gacha price
+        total_amount: 500, // Fixed gacha price
         payment_status: "Success", // Auto success for mock
         shipping_type: "Pickup A10", // Default pickup
       }
