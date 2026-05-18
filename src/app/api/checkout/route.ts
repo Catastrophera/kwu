@@ -11,7 +11,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
     }
 
-    const { productId, totalAmount, shippingType } = await req.json()
+    const { productId, totalAmount, shippingType, address } = await req.json()
+
+    // Update user address if provided
+    if (address && address.trim() !== '') {
+      await prisma.user.update({
+        where: { id: parseInt(session.user.id) },
+        data: { address: address.trim() }
+      })
+    }
 
     // Create a transaction directly mocking a successful payment
     const transaction = await prisma.transaction.create({

@@ -22,6 +22,7 @@ type Order = {
   shipping_type: string
   status: string
   created_at: string
+  address?: string | null
 }
 
 export default function AdminPage() {
@@ -244,7 +245,14 @@ export default function AdminPage() {
                     </td>
                     <td className="py-4 px-4 font-bold text-white">{order.user_name}</td>
                     <td className="py-4 px-4">{order.items}</td>
-                    <td className="py-4 px-4">{order.shipping_type}</td>
+                    <td className="py-4 px-4">
+                      <div>{order.shipping_type}</div>
+                      {order.shipping_type === 'Flat Rate' && order.address && (
+                        <div className="text-xs text-gray-400 mt-1 max-w-[200px]">
+                          <span className="font-semibold text-cyber-cyan">Alamat:</span> {order.address}
+                        </div>
+                      )}
+                    </td>
                     <td className="py-4 px-4">
                       <span className={`px-2 py-1 text-xs border ${
                         order.status === 'Selesai' ? 'border-green-500 text-green-400 bg-green-900/30' : 'border-yellow-500 text-yellow-400 bg-yellow-900/30'

@@ -21,10 +21,19 @@ function CheckoutContent() {
   const [loading, setLoading] = useState(true)
   const [processing, setProcessing] = useState(false)
   const [shippingType, setShippingType] = useState('Pickup A10')
+  const [addressInput, setAddressInput] = useState('')
 
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/login')
+    } else if (status === 'authenticated') {
+      fetch('/api/profile')
+        .then(res => res.json())
+        .then(data => {
+          if (data.user && data.user.address) {
+            setAddressInput(data.user.address)
+          }
+        })
     }
   }, [status, router])
 
@@ -48,6 +57,12 @@ function CheckoutContent() {
 
   const handleCheckoutClick = () => {
     if (!product) return
+    if (shippingType === 'Flat Rate') {
+      if (!addressInput || addressInput.trim() === '') {
+        alert('Alamat pengiriman wajib diisi untuk opsi Kirim ke Alamat.')
+        return
+      }
+    }
     setShowQRIS(true)
   }
 
@@ -66,7 +81,8 @@ function CheckoutContent() {
         body: JSON.stringify({
           productId: product.id,
           totalAmount: shippingType === 'Flat Rate' ? product.price + 2000 : product.price,
-          shippingType
+          shippingType,
+          address: addressInput
         })
       })
 
@@ -121,6 +137,18 @@ function CheckoutContent() {
                 <option value="Flat Rate">Kirim ke Alamat (+Rp 2.000)</option>
               </select>
             </div>
+            
+            {shippingType === 'Flat Rate' && (
+              <div className="mt-4">
+                <label className="block text-gray-400 mb-2">Alamat Pengiriman <span className="text-cyber-pink">*</span></label>
+                <textarea 
+                  className="w-full bg-black/50 border border-cyber-cyan text-white p-2 outline-none min-h-[80px]"
+                  placeholder="Masukkan alamat pengiriman lengkap..."
+                  value={addressInput}
+                  onChange={(e) => setAddressInput(e.target.value)}
+                />
+              </div>
+            )}
             
             <div className="pt-4 mt-4 border-t border-cyber-gray/50 flex justify-between text-lg font-bold">
               <span>Total Bayar</span>

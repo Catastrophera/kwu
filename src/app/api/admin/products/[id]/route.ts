@@ -5,7 +5,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions)
@@ -22,8 +22,16 @@ export async function DELETE(
       return NextResponse.json({ message: 'Forbidden: Admin only' }, { status: 403 })
     }
 
+    const { id } = await params;
+    const productId = parseInt(id);
+
+    // Delete related gacha logs first to avoid foreign key constraint error
+    await prisma.gachaLog.deleteMany({
+      where: { product_id_received: productId }
+    });
+
     await prisma.product.delete({
-      where: { id: parseInt(params.id) }
+      where: { id: productId }
     })
 
     return NextResponse.json({ message: 'Product deleted' }, { status: 200 })
