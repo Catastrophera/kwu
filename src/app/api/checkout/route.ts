@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../auth/[...nextauth]/route'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export async function POST(req: Request) {
   try {
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       data: {
         user_id: parseInt(session.user.id),
         total_amount: totalAmount,
-        payment_status: 'Success',
+        payment_status: 'Proses',
         shipping_type: shippingType,
         snap_token: `mock-snap-${Date.now()}`
       }
@@ -30,3 +30,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Internal server error' }, { status: 500 })
   }
 }
+

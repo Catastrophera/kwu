@@ -12,6 +12,9 @@ model User {
   username     String        @unique
   email        String        @unique
   password     String
+  role         String        @default("USER")
+  address      String?
+  phone        String?
   transactions Transaction[]
   gachaLogs    GachaLog[]
   createdAt    DateTime      @default(now())
@@ -42,6 +45,8 @@ model GachaLog {
   id                  Int      @id @default(autoincrement())
   user_id             Int
   product_id_received Int
+  status              String   @default("Unclaimed")
+  shipping_type       String?
   created_at          DateTime @default(now())
   user                User     @relation(fields: [user_id], references: [id])
   product             Product  @relation(fields: [product_id_received], references: [id])

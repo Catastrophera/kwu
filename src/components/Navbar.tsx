@@ -23,7 +23,15 @@ export default function Navbar() {
             
             {session ? (
               <div className="flex items-center gap-6 ml-4 border-l border-white/10 pl-6">
-                <Link href="/history" className="text-sm text-gray-400 hover:text-white transition-colors">Riwayat</Link>
+                {session.user?.role !== 'ADMIN' && (
+                  <>
+                    <Link href="/history" className="text-sm text-gray-400 hover:text-white transition-colors">Riwayat</Link>
+                    <Link href="/profile" className="text-sm text-gray-400 hover:text-white transition-colors">Profil</Link>
+                  </>
+                )}
+                {session.user?.role === 'ADMIN' && (
+                  <Link href="/admin" className="text-sm text-cyber-pink hover:text-white transition-colors font-bold drop-shadow-[0_0_5px_rgba(255,42,133,0.5)]">Admin</Link>
+                )}
                 <button 
                   onClick={() => signOut()} 
                   className="text-sm px-4 py-2 rounded-full border border-white/10 text-gray-300 hover:border-cyber-pink hover:text-cyber-pink transition-all bg-white/5"

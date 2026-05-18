@@ -44,6 +44,7 @@ export default function GachaPage() {
   const [result, setResult] = useState<Product | null>(null)
   const [error, setError] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
+  const [showQRIS, setShowQRIS] = useState(false)
   const [phase, setPhase] = useState<AnimPhase>('idle')
   const [reelIndex, setReelIndex] = useState(0)
   const [showResult, setShowResult] = useState(false)
@@ -97,6 +98,11 @@ export default function GachaPage() {
       return
     }
     setShowConfirm(true)
+  }
+
+  const handleShowQRIS = () => {
+    setShowConfirm(false)
+    setShowQRIS(true)
   }
 
   const handlePull = async () => {
@@ -160,10 +166,48 @@ export default function GachaPage() {
                 Batal
               </button>
               <button
-                onClick={handlePull}
+                onClick={handleShowQRIS}
                 className="flex-1 py-3 rounded-xl cyber-button text-white font-bold"
               >
                 Tarik Sekarang!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Fake QRIS Modal */}
+      {showQRIS && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+          <div className="glass-panel border border-cyber-cyan/50 rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-[0_0_40px_rgba(0,229,255,0.15)] animate-[fadeInUp_0.3s_ease-out]">
+            <h2 className="text-2xl font-bold text-white mb-2">Scan QRIS Gacha</h2>
+            <p className="text-gray-400 mb-6 text-sm">Bayar untuk 1x Tarikan</p>
+            
+            <div className="bg-white p-4 rounded-xl mb-6 mx-auto w-48 h-48 flex items-center justify-center border-4 border-cyber-cyan/30">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FakeQRIS-Gacha" alt="QRIS" className="w-full h-full object-contain" />
+            </div>
+
+            <p className="text-cyber-cyan font-mono text-xl mb-8 font-bold">
+              Rp 500
+            </p>
+
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={() => {
+                  setShowQRIS(false)
+                  handlePull()
+                }}
+                disabled={isPulling}
+                className="w-full py-3 rounded-xl cyber-button text-white font-bold disabled:opacity-50"
+              >
+                Simulasikan Pembayaran Berhasil
+              </button>
+              <button
+                onClick={() => setShowQRIS(false)}
+                disabled={isPulling}
+                className="w-full py-3 rounded-xl border border-white/20 text-gray-300 hover:bg-white/10 transition-colors text-sm"
+              >
+                Batal
               </button>
             </div>
           </div>

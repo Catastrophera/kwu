@@ -34,16 +34,15 @@ export default async function Home() {
       </div>
 
       {/* Gacha Banner */}
-      <div className="mb-24 p-1 rounded-2xl bg-gradient-to-r from-cyber-cyan/30 via-cyber-pink/30 to-cyber-cyan/30 hover:from-cyber-cyan hover:to-cyber-pink transition-all duration-500 shadow-xl shadow-cyber-cyan/10">
+      <Link href="/gacha" className="block mb-24 p-1 rounded-2xl bg-gradient-to-r from-cyber-cyan/30 via-cyber-pink/30 to-cyber-cyan/30 hover:from-cyber-cyan hover:to-cyber-pink transition-all duration-500 shadow-xl shadow-cyber-cyan/10">
         <div className="bg-cyber-dark/90 backdrop-blur-xl rounded-xl p-10 text-center relative overflow-hidden group cursor-pointer h-full">
-          <Link href="/gacha" className="absolute inset-0 z-10"></Link>
           <div className="relative z-20">
             <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">🎰 GACHA <span className="text-cyber-cyan drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">STIKER</span></h2>
             <p className="text-gray-400 font-light mb-8 max-w-2xl mx-auto text-lg">Coba keberuntunganmu! Dapatkan stiker IT secara acak dengan harga hanya <span className="text-cyber-cyan font-bold">Rp 500</span> per tarikan.</p>
             <span className="inline-block cyber-button text-white font-bold px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,229,255,0.2)]">Coba Sekarang!</span>
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Product Catalog */}
       <div id="catalog" className="scroll-mt-24">

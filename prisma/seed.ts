@@ -1,8 +1,11 @@
-﻿import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
 async function main() {
+  await prisma.gachaLog.deleteMany()
+  await prisma.product.deleteMany()
+  
   const products = [
     {
       product_name: "JavaScript Neon Sticker",
